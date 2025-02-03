@@ -36,4 +36,35 @@ if (!isset($_SESSION['username'])) {
 }
 ?>
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Dashboard</title>
+</head>
+<body>
+    <div class="dashboard-container">
+        <h2>Dashboard</h2>
 
+        <!-- Display database table -->
+        <h3>Data from Database</h3>
+        <table border="1">
+            <tr>
+                <!-- Adjust column names based on your table structure -->
+                <?php foreach ($rows[0] as $columnName => $value): ?>
+                    <th><?php echo $columnName; ?></th>
+                <?php endforeach; ?>
+            </tr>
+            <?php foreach ($rows as $row): ?>
+                <tr>
+                    <?php foreach ($row as $value): ?>
+                        <td><?php echo $value; ?></td>
+                    <?php endforeach; ?>
+                </tr>
+            <?php endforeach; ?>
+        </table>
+    </div>
+</body>
+</html>
